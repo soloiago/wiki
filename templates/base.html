@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/main.css" />
+
+  <title>CS 253 Wiki</title>
+</head>
+
+<body>
+  <a href="/" class="main-title">
+    CS 253 Wiki
+  </a>
+
+  <div class="login-area">
+	{% if v %}
+	<a href="/_edit{{wikiPage}}?v={{v}}"> 
+	{% else %}
+	<a href="/_edit{{wikiPage}}">
+	{% endif %}
+    Edit</a> | 
+    {% if view %}
+      <a href="{{wikiPage}}">View</a>  
+    {% else %}
+      <a href="/_history{{wikiPage}}">History</a>  
+    {% endif %}
+    :|:
+    {% if user %}
+      {{user.name}} (<a class="login-link" href="/logout">logout</a>)
+    {% else %}
+      <a class="login-link" href="/login">login</a>
+      |
+      <a class="login-link" href="/signup">signup</a>
+    {% endif %}
+  </div>
+
+  <div>
+  {% block content %}
+  {% endblock %}
+  </div>
+  
+  <br>
+  <div class="content">
+  <a href="mycodehere">Code</a>
+  </div>
+  
+</body>
+
+</html>
+

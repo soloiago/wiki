@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table>
+<th>Date/Author</th><th>Content</th><th>Action</th>
+  {% for q in history %}
+    {{q.render(wikiPage)}}
+  {% endfor %}
+</table>
+	
+{% endblock %}

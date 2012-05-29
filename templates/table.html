@@ -1,0 +1,8 @@
+<tr>
+	<td width=150px>{{p.created.strftime("%b %d, %Y, %H:%M")}} / {{p.name}}
+	{% if p.email %}
+	(<a href="mailto:{{p.email}}">{{p.email}}</a>)
+	{% endif %}</td>
+	<td>{{p.content}}</td>
+	<td width=60px> <a href="{{wikiPage}}?v={{p.get_id()}}">view</a> <a href="/_edit{{wikiPage}}?v={{p.get_id()}}">edit</a> </td>
+</tr>
